@@ -1,0 +1,21 @@
+{
+  "name": "limpin-brighte-eats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm run install-all",
+    "init-db": "npm run --prefix ./backend init-db",
+    "start:fe": "npm run --prefix ./frontend dev",
+    "start:be": "npm run --prefix ./backend dev",
+    "start": "concurrently \"npm run start:fe\" \"npm run start:be\"",
+    "install-all": "npm --prefix ./frontend install && npm --prefix ./backend install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
