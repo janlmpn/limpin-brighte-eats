@@ -7,6 +7,11 @@ export type LeadModel = {
   services: ServiceModel[]
 }
 
+export type LeadsPaginationModel = {
+  leads: LeadModel[]
+  totalCount: number;
+}
+
 export type InputLeadModel = Omit<LeadModel, 'services'> & {
   services: string[]
 }
