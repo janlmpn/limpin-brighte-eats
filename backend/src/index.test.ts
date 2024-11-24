@@ -40,7 +40,6 @@ it('returns hello with the provided name', async () => {
   // Note the use of Node's assert rather than Jest's expect; if using
   // TypeScript, `assert`` will appropriately narrow the type of `body`
   // and `expect` will not.
-  console.log('response', JSON.stringify(response));
   expect(response.body.kind === 'single');
   expect(response.body.singleResult.errors).toBeUndefined();
   expect(response.body.singleResult.data?.hello).toBe('Hello world!');

@@ -40,11 +40,20 @@ Start both the frontend and backend services by running:
 npm run start
 ```
 
+### 6. Accessing the application  
+
+#### 6.1 [backend](http://localhost:4000)
+
+#### 6.2 [frontend](http://localhost:3000)
+
 ---
 
 ## Development Notes
 
 During development, if you make any changes to the GraphQL schema, ensure to:
 
-1. **Update the schema**: Regenerate any necessary client-side types or queries.
+1. **Update the schema**: Regenerate any necessary client-side types or queries. Execute the following in the backend and frontend directories:
+```
+npm run generate
+```
 2. **Test thoroughly**: Verify that all schema changes are reflected in both the frontend and backend.

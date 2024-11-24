@@ -4,7 +4,6 @@ const knex = require('knex');
 require('dotenv').config();
 
 
-console.log('d', process.env.DB_USER);
 const db = knex({
   client: process.env.DB_CLIENT || 'mysql2',
   connection: {
