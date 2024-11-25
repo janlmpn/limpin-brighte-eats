@@ -40,3 +40,19 @@ export const GET_LEAD_BY_EMAIL = gql(`
     }
   }
 `);
+
+export const GET_LEAD = gql(`
+  query LeadByID($leadId: ID!) {
+    lead(id: $leadId) {
+      id
+      email
+      name
+      mobile
+      postcode
+      services  {
+        id
+        name
+      }
+    }
+  }
+`);
