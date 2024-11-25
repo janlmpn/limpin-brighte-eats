@@ -1,16 +1,21 @@
-/** @jsxImportSource @emotion/react */
 import React from 'react';
 import Layout from '../components/Layout';
 import Container from '../components/Container';
 import ContentSection from '../components/ContentSection';
 import QueryResult from '../components/QueryResult';
+import LeadsTable from '../components/LeadsTable'
 import { LEADS } from '../graphql/queries'
 import { useQuery } from "@apollo/client";
-
-
+import { useNavigate } from 'react-router-dom';
 
 const Leads: React.FC = () => {
+  const navigate = useNavigate();
+
   const { loading, error, data } = useQuery(LEADS);
+
+  const handleViewLead = (id: string) => {
+    navigate(`/leads/${id}`);
+  };
 
   return (
     <Layout>
@@ -18,24 +23,7 @@ const Leads: React.FC = () => {
         <h1>Leads</h1>
         <QueryResult error={error} loading={loading} data={data}>
           <ContentSection>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Mobile</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data?.leads?.map((lead) => (
-                  <tr key={lead.id}>
-                    <td>{lead.name}</td>
-                    <td>{lead.email}</td>
-                    <td>{lead.mobile}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <LeadsTable leads={data?.leads} onViewLead={handleViewLead} />
           </ContentSection>
         </QueryResult>
       </Container>

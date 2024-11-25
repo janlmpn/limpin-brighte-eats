@@ -6,7 +6,7 @@ A web application to register and view leads.
 
 ## Requirements
 
-- **Database**: MySQL  
+- **Database**: MySQL v5.7  
 - **Node.js**: v20.18.0 and above  
 - **npm**: v10.8.2  
 
