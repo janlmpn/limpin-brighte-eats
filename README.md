@@ -22,29 +22,34 @@ git clone <repository-url>
 ### 2. Set Up Environment Variables  
 Create `.env` files in both the `/backend` and `/frontend` directories based on the provided `.env.sample` files.  
 
-### 3. Install front and backend applications
-Run the following command to set up applications:  
+### 3. Install the backend
+Run the following command to set up the backend. This is required before running the frontend to avoid errors in frontend's codegen.
 ```
-npm install
+cd backend && npm install
 ```
 
 ### 4. Initialize the Database  
-Run the following command to set up the database:  
+Still in the backend directory, run the following command to set up the database:  
 ```
 npm run init-db
 ```
 
-### 5. Start the Application  
-Start both the frontend and backend services by running:  
+### 5. Run the backend  
+Run the following command to set up the database:  
 ```
-npm run start
+npm run dev
 ```
 
-### 6. Accessing the application  
+### 6. Install and run frontend
+In a new terminal, run the following command to set up and run the frontend
+```
+cd frontend && npm install && npm run dev
+```
+### 7. Accessing the application
 
-#### 6.1 [backend](http://localhost:4000)
+#### 7.1 [backend](http://localhost:4000)
 
-#### 6.2 [frontend](http://localhost:3000)
+#### 7.2 [frontend](http://localhost:3000)
 
 ---
 
@@ -56,4 +61,7 @@ During development, if you make any changes to the GraphQL schema, ensure to:
 ```
 npm run generate
 ```
-2. **Test thoroughly**: Verify that all schema changes are reflected in both the frontend and backend.
+2. **Succeeding runs**: You can stay in the root project and just execute to concurrently run the backend and frontend applications
+```
+npm run start
+```
