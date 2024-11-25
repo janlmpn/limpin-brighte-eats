@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, Global } from '@emotion/react';
+import 'typeface-roboto'
 
 const globalStyles = (
   <Global styles={css`
@@ -14,7 +15,7 @@ const globalStyles = (
       }
 
       body {
-        font-family: 'Arial', sans-serif;
+        font-family: 'Roboto', sans-serif;
         background-color: #f9f9f9;
         color: #333;
         display: flex;

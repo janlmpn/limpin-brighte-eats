@@ -6,6 +6,10 @@ export const typeDefs = gql`
     leads: [Lead!]!
     "Fetch a single lead by its ID"
     lead(id: ID!): Lead
+    "Fetch a single lead by its email"
+    leadByEmail(email: String!): Lead
+    "Get valid options for services"
+    services: [Service!]!
   }
   type Mutation {
     insertLead(

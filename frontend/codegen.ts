@@ -3,7 +3,7 @@ import 'dotenv/config'
 
 const config: CodegenConfig = {
   schema: process.env.VITE_APOLLO_GQL_HOST,
-  documents: ["src/**/*.tsx"],
+  documents: ["./src/graphql/*.ts"],
   generates: {
     "./src/__generated__/": {
       preset: "client",

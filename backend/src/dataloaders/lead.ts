@@ -25,13 +25,15 @@ export class LeadLoader extends BatchedSQLDataSource {
     return leads;
   }
 
-  async getLead(id: string): Promise<LeadModel | null> {
+  async getLead(param: string, byEmail: boolean = false): Promise<LeadModel | null> {
     const lead: LeadModel = await this.db.query
       .select("*").from("lead")
-      .where("id", id)
+      .where(
+        byEmail ? "email" : "id", 
+        param)
       .first();
     if(lead){
-      lead.services = await this.getLeadServices(id);
+      lead.services = await this.getLeadServices(lead.id);
     }
     return lead;
   }
@@ -85,6 +87,10 @@ export class LeadLoader extends BatchedSQLDataSource {
     await this.db.write.insert(leadServiceToInsert).into('lead_service')
 
     return this.getLead(lead.id);
+  }
+
+  getServices(): Promise<ServiceModel[]> {
+    return this.db.query.select('*').from('service');
   }
 
 }

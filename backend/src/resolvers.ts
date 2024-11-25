@@ -8,7 +8,13 @@ export const resolvers: Resolvers = {
     },
     lead: (_, {id}, { dataSources }) =>{
       return dataSources.leadLoader.getLead(id);
-    }
+    },
+    leadByEmail: (_, { email }, { dataSources }) =>{
+      return dataSources.leadLoader.getLead(email, true);
+    },
+    services: (_, __, { dataSources }) =>{
+      return dataSources.leadLoader.getServices();
+    },
   },
   Mutation: {
     insertLead: async (_, { name, email, mobile, postcode, services }, { dataSources }) => {

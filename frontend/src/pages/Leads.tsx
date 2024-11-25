@@ -4,24 +4,10 @@ import Layout from '../components/Layout';
 import Container from '../components/Container';
 import ContentSection from '../components/ContentSection';
 import QueryResult from '../components/QueryResult';
-import { gql } from "../__generated__";
+import { LEADS } from '../graphql/queries'
 import { useQuery } from "@apollo/client";
 
-export const LEADS = gql(`
-  query GetLeads{
-    leads {
-      id
-      email
-      name
-      mobile
-      postcode
-      services  {
-        id
-        name
-      }
-    }
-  }
-`);
+
 
 const Leads: React.FC = () => {
   const { loading, error, data } = useQuery(LEADS);
