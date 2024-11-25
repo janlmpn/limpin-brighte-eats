@@ -42,3 +42,5 @@ async function startApolloServer() {
 }
 
 startApolloServer();
+
+export { resolvers, typeDefs };

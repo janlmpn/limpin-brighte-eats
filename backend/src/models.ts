@@ -4,5 +4,19 @@ export type LeadModel = {
   email: string;
   mobile: string;
   postcode: string;
-  services: string[];
+  services: ServiceModel[]
+}
+
+export type InputLeadModel = Omit<LeadModel, 'services'> & {
+  services: string[]
+}
+
+export type ServiceModel = {
+  id: string;
+  name: string;
+}
+
+export type LeadServiceModel = {
+  lead_id: string;
+  service_id: string;
 }

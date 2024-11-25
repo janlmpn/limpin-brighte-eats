@@ -15,7 +15,10 @@ export const LEADS = gql(`
       name
       mobile
       postcode
-      services
+      services  {
+        id
+        name
+      }
     }
   }
 `);

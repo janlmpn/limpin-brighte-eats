@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "module": "commonjs"
   },
-  "include": ["src"]
+  "includes": ["src/**/*", "__tests__/**/*"]
 }
