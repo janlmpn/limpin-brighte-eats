@@ -1,7 +1,7 @@
 import { createTestServer } from '../src/test-utils/test-helper';
 import { db } from '../src/test-utils/test-db-config';
 import { insertLeadGQL, getLeadsGQL, getSpecificLead } from '../src/test-utils/test-queries';
-import { LeadLoader } from '../src/dataloaders'
+import { LeadLoader } from '../src/loaders'
 
 let server = null;
 let leadLoader = null;

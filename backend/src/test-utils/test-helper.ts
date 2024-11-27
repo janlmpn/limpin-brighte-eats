@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { resolvers, typeDefs } from '..';
-import { LeadLoader } from '../dataloaders'
+import { LeadLoader } from '../loaders'
 
 interface ContextValue {
   dataSources: {
