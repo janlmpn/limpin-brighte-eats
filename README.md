@@ -65,3 +65,9 @@ npm run generate
 ```
 npm run start
 ```
+
+## Special thanks to:
+
+1. **Apollo Server**: - for GraphQL API and UI - 
+2. **Apollo Server Testing**: - https://github.com/rukykf/jest-sqlite-tutorial
+3. **Apollo SQL Data Source**: - https://github.com/nic-jennings/batched-sql-datasource using Knex

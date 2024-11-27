@@ -2,7 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
-import { LeadLoader } from "./dataloaders";
+import { LeadLoader } from "./loaders";
 import 'dotenv/config'
 import { knex } from "knex";
 

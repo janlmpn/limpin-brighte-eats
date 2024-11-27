@@ -1,4 +1,4 @@
-import { LeadLoader } from "./dataloaders";
+import { LeadLoader } from "./loaders";
 
 export type DataSourceContext = {
   dataSources: {
