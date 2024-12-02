@@ -1,8 +1,4 @@
-import {
-  BatchedLoader,
-  BatchedSQLDataSource,
-  BatchedSQLDataSourceProps,
-} from "@nic-jennings/sql-datasource";
+import { BatchedSQLDataSource, BatchedSQLDataSourceProps } from "@nic-jennings/sql-datasource";
 import { 
   LeadModel, 
   InputLeadModel, 
