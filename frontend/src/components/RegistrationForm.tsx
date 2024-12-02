@@ -127,7 +127,7 @@ const RegistrationForm: React.FC = () => {
   // Fetch available services
   const { data: servicesData, loading: servicesLoading, error: servicesError } = useQuery(GET_SERVICES);
   const [ checkEmail ] = useLazyQuery(GET_LEAD_BY_EMAIL);
-  const [insertLead] = useMutation(INSERT_LEAD);
+  const [ insertLead ] = useMutation(INSERT_LEAD);
 
   const validateForm = async () => {
     const newErrors: { email?: string; mobile?: string; services?: string;} = {};

@@ -1,5 +1,4 @@
 import React, { PropsWithChildren} from 'react';
-import styled from '@emotion/styled';
 import { ApolloError } from '@apollo/client'
 
 
@@ -28,12 +27,3 @@ const QueryResult: React.FC<PropsWithChildren<QueryResultProps>> = ({ loading, e
 };
 
 export default QueryResult;
-
-/** Query Result styled components */
-const SpinnerContainer = styled.div({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '100%',
-  height: '100vh',
-});

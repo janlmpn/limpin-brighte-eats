@@ -3,10 +3,10 @@ import { v4 as uuidv4  } from "uuid";
 
 export const resolvers: Resolvers = {
   Query: {
-    leads: (_, __, { dataSources }) =>{
-      return dataSources.leadLoader.getLeads();
+    leads: (_, { limit, offset }, { dataSources }) =>{
+      return dataSources.leadLoader.getLeads(limit, offset);
     },
-    lead: (_, {id}, { dataSources }) =>{
+    lead: (_, {id,}, { dataSources }) =>{
       return dataSources.leadLoader.getLead(id);
     },
     leadByEmail: (_, { email }, { dataSources }) =>{
