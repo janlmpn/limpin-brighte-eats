@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 export const typeDefs = gql`
   type Query {
     "Fetch leads"
-    leads: [Lead!]!
+    leads(offset: Int, limit: Int): LeadsPagination
     "Fetch a single lead by its ID"
     lead(id: ID!): Lead
     "Fetch a single lead by its email"
@@ -37,6 +37,10 @@ export const typeDefs = gql`
     mobile: String!
     postcode: String!
     services: [Service!]!
+  }
+  type LeadsPagination {
+    leads: [Lead!]
+    totalCount: Int!
   }
   type Service {
     id: ID!

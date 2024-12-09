@@ -29,15 +29,18 @@ export const insertLeadGQL = gql`
 export const getLeadsGQL = gql`
   query Leads {
     leads {
-      id
-      name
-      email
-      mobile
-      postcode
-      services {
+      leads {
         id
         name
+        email
+        mobile
+        postcode
+        services {
+          id
+          name
+        }
       }
+      totalCount
     }
   }
 `;

@@ -10,18 +10,22 @@ export const GET_SERVICES = gql(`
 `);
 
 export const LEADS = gql(`
-  query GetLeads{
-    leads {
-      id
-      email
-      name
-      mobile
-      postcode
-      services  {
+  query GetLeads($limit: Int!, $offset: Int!){
+    leads(limit: $limit, offset: $offset) {
+      leads {
         id
+        email
         name
+        mobile
+        postcode
+        services  {
+          id
+          name
+        }
       }
+      totalCount
     }
+    
   }
 `);
 

@@ -131,7 +131,7 @@ describe('GraphQL API Queries', () => {
     insertedLeadID = result.body.singleResult.data.insertLead.lead.id
   })
 
-  it('should return leads', async () => {
+  it('should return leads and correct totalCount', async () => {
 
     
     const result: any = await server.executeOperation(
@@ -147,8 +147,9 @@ describe('GraphQL API Queries', () => {
       }
 
     );
-    expect(result.body.singleResult.data.leads).toBeInstanceOf(Array);
-    expect(result.body.singleResult.data.leads).toHaveLength(1);
+    expect(result.body.singleResult.data.leads.leads).toBeInstanceOf(Array);
+    expect(result.body.singleResult.data.leads.leads).toHaveLength(1);
+    expect(result.body.singleResult.data.leads.totalCount).toBe(1);
   });
 
   it('should return specific lead', async () => {

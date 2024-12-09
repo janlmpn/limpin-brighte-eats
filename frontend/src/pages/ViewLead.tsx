@@ -11,18 +11,7 @@ import QueryResult from '../components/QueryResult';
 import { GET_LEAD } from '../graphql/queries'
 import { css } from '@emotion/react';
 
-const ViewLead: React.FC = () => {
-  const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
-  
-  const { loading, error, data } = useQuery(
-    GET_LEAD, 
-    {
-      variables: { leadId: id || '' }
-    }
-  );
-
-  const containerStyles = css`
+const containerStyles = css`
     button {
       padding: 0.75rem;
       border-radius: 8px;
@@ -43,8 +32,16 @@ const ViewLead: React.FC = () => {
       cursor: not-allowed;
     }
   `;
-
-  // Example lead data (replace with data fetched from your API)
+const ViewLead: React.FC = () => {
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  
+  const { loading, error, data } = useQuery(
+    GET_LEAD, 
+    {
+      variables: { leadId: id || '' }
+    }
+  );
 
   return (
     <Layout>

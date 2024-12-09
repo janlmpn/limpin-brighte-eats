@@ -1,4 +1,4 @@
-import { LeadLoader } from './lead'
+import { LeadLoader } from "./lead"
 
 export {
   LeadLoader

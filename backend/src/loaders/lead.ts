@@ -3,15 +3,30 @@ import {
   BatchedSQLDataSource,
   BatchedSQLDataSourceProps,
 } from "@nic-jennings/sql-datasource";
-import { LeadModel, InputLeadModel, LeadServiceModel, ServiceModel } from "../models";
+import { 
+  LeadModel, 
+  InputLeadModel, 
+  LeadServiceModel, 
+  ServiceModel,
+  LeadsPaginationModel
+ } from "../models";
 
 export class LeadLoader extends BatchedSQLDataSource {
   constructor(config: BatchedSQLDataSourceProps) {
     super(config);
   }
 
-  async getLeads(): Promise<LeadModel[]> {
-    const leadsResult: LeadModel[] = await this.db.query.select("*").from("lead");
+  async getLeads(limit: number = 10, offset: number = 0): Promise<LeadsPaginationModel> {
+    const [leadsResult, [{totalCount}]] = await Promise.all([
+      this.db.query.select("*")
+      .from("lead")
+      .limit(limit)
+      .offset(offset),
+      this.db.query.select()
+      .from("lead")
+      .count("*", {as: "totalCount"})
+    ])
+
     const leads = await Promise.all(
       leadsResult.map(async (lead: any) => {
         const servicesResult = await this.getLeadServices(lead.id);
@@ -22,7 +37,10 @@ export class LeadLoader extends BatchedSQLDataSource {
       })
     );
 
-    return leads;
+    return {
+      leads,
+      totalCount
+    };
   }
 
   async getLead(param: string, byEmail: boolean = false): Promise<LeadModel | null> {
